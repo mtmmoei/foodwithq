@@ -9,9 +9,6 @@
             <h1><span class="glyphicon glyphicon-flash"></span> Hello World</h1>
         </div>    
 
-
-
-
     </div>
 </div>
 
