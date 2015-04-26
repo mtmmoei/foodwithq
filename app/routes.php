@@ -19,3 +19,7 @@ Route::get('/', function()
 Route::get('/home',function(){
 	return View::make('home');
 });
+
+Route::get('/map',function(){
+	return View::make('map');
+});
