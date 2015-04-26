@@ -1,5 +1,7 @@
-//$(document).ready(function(){
-    $("#linkModal").on("click", function(){ 
-    	$("#review").modal("show");
-    });
-//});
+var id;
+$("#linkModal").on("click", function(reviewId){ 
+    id = reviewId;
+    $("#review").modal("show");
+});
+
+
