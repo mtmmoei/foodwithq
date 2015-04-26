@@ -50,5 +50,41 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+    <div class="review">
+            @foreach($data as $data1)
+            
+            <div class="reviewImg">
+                <img src="{{$data1->image}}" style="width:360px;height:360px"  reviewId="{{$data1->review}}" id="linkModal" data-toggle="modal" href="#review">
+                {{$data1->resturantName}}
+            </div> 
+            @endforeach  
+        
+    </div>
+    
+</div>    
+
+
+
+
+ 
+<div class="modal fade" id="review" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+ 
+            <div class="modal-header">
+                <h3>Review</h3>
+            </div>
+            <div class="modal-body" id="reviewData">
+                
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-danger btn-modal btn-cancel"  data-dismiss="modal">OK</a>
+            </div>
+
+        </div>
+    </div>
 </div>
+ 
 @stop
