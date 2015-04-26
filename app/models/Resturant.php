@@ -9,5 +9,8 @@ class Resturant extends Eloquent
 	public static function getAllRestaurants(){
 		return DB::table('resturant')->get();
 	}
+	public static function getRestaurantByType($type){
+		return DB::table('resturant')->where('type', '=', $type)->get();
+	}
 
 }
