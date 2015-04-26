@@ -113,8 +113,7 @@ img {
     background-color: #555;
 }
 
-.btn-group.dropup{
-    position:fixed;
-    left:0px;
-    bottom:0;
+#chat_result{
+  height:300px;
+  overflow-x:hidden;
 }
