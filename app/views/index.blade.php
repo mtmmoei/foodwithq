@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
- <meta charset="utf-8">
- <title>Food with Q</title>
- {{HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')}}
- {{HTML::script('js/bootstrap.min.js')}}
- {{HTML::script('js/index.js')}}
- {{HTML::script('js/chatbox.js')}}
- {{HTML::style('css/bootstrap.min.css')}}
- {{HTML::style('css/index.css')}}
- {{HTML::style('css/chatbox.css')}}
-</head>
-<body>
-  
+@extends("master",['title' => 'หน้าแรก'])
+@section('content')
   <div class="container">
   	<h1>Hello World</h1>
     <div class="row chat-window col-xs-5 col-md-3" id="chat_window_1">
@@ -111,6 +98,4 @@
     		</div>
         </div>
     </div>
-    
-</body>
-</html>
+    @stop
