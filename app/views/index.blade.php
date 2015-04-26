@@ -75,4 +75,40 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+    <div class="review">
+        <div class="reviewImg">
+            <img src="" style="width:128px;height:128px"  id="linkModal" data-toggle="modal" href="#review"><br>
+            abcd
+        </div> 
+        <div class="reviewImg">
+            <img src="" style="width:128px;height:128px"><br>
+            abcd
+        </div>    
+    </div>
+    
+</div>    
+
+
+
+
+ 
+  <div class="modal fade" id="review" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+ 
+  <div class="modal-header">
+        
+        <h3>Review</h3>
+   </div>
+   <div class="modal-body">
+   </div>
+   <div class="modal-footer">
+       <a href="#" class="btn btn-danger btn-modal btn-cancel"  data-dismiss="modal">OK</a>
+   </div>
+
+  </div>
+</div>
+</div>
 @stop
