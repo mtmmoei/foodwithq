@@ -12,3 +12,7 @@
     margin-right: auto;
     float: none;
 }
+#map_canvas {
+	width: 558px;
+	height: 400px;
+}

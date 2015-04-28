@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'IndexController@getReview');
+Route::get('/showRestaurant', 'IndexController@showRestaurantByCondition');
 
 Route::get('/home',function(){
 	return View::make('home');
