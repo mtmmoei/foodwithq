@@ -16,9 +16,11 @@ class IndexController extends Controller {
 			$subtype = Input::get('subtype');
 
 			$data = Resturant::getRestaurant($type,$section,$subtype);
-			var_dump($data);
-			// Log::info("test ajax: " . $type );
-			Log::info("test data: " . sizeof($data) );
+			Log::info("test q: " . Response::json($data) );
+			$data = Resturant::getRestaurantByType($type);
+			 
+			 Log::info("test : " . Response::json($data) );
+
 			return Response::json($data);
 			// return View ::make('home',['data'=>$data]);
 		}

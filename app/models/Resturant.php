@@ -9,7 +9,10 @@ class Resturant extends Eloquent
 	public static function getAllRestaurants(){
 		return DB::table('resturant')->get();
 	}
-	public static function getRestaurant($type,$section,$subtype){
+	public static function getRestaurantByType($type){
+		return DB::table('resturant')->where('type', '=', $type)->get();
+	}
+public static function getRestaurant($type,$section,$subtype){
 		if(!empty($type) && !empty($section) && !empty($subtype)){
 
 			$data = DB::table('resturant')->where('type', '=',$type)->where('section', '=',$section)->where('subtype', '=',$subtype)->get();
@@ -49,14 +52,11 @@ class Resturant extends Eloquent
 			var_dump($data);
 			return $data;
 		}
-		$data = DB::table('resturant')->where('type', '=',$type)->get();
-			var_dump($data);
-			return $data;
 
-
+		 // $data = DB::table('resturant')->where('type',$type)->get();
+		 // 	var_dump($data);
+			return "error";
 	}
 
-
-	
 
 }
