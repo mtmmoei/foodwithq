@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
+Route::get('/', 'IndexController@getReview');
+Route::get('/showRestaurant', 'IndexController@showRestaurantByCondition');
 
 Route::get('/home',function(){
 	return View::make('home');
@@ -23,6 +21,8 @@ Route::get('/home',function(){
 Route::get('/map',function(){
 	return View::make('map');
 });
+
 Route::get('Restaurant','RestaurantsController@getRestaurant');
 
 Route::get('Restaurant/{type}/{section}/{subtype}', array('as' => 'name', 'uses' => 'EachstatusController@showEachStatus'));
+
