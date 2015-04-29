@@ -1,15 +1,14 @@
 @extends("master",['title' => 'เกี่ยวกับ'])
 @section('style')
- {{HTML::style('css/about.css')}}
- @stop
+{{HTML::style('css/about.css')}}
+@stop
 @section('content')
+<section id='cover'>
+ <div class='cover'>
+  <div class='coverBackground'></div>
 
-  <section id='cover'>
-   <div class='cover'>
-    <div class='coverBackground'></div>
-
-    <div class='logo'>
-{{ HTML::image('img/logo4.png', 'ของกินของขวัญ') }}
+  <div class='logo'>
+    {{ HTML::image('img/logo4.png', 'ของกินของขวัญ') }}
     <!-- <h1>ของกินของขวัญ</h1> -->
     <h1>"คิดถึงของกิน คิดถึงของกินของขวัญ"</h1>
   </div> 
@@ -45,4 +44,4 @@
     </div>
     
   </section> 
-@stop
+  @stop

@@ -1,11 +1,6 @@
 hr{
     border-bottom:1px dotted #AAA;
   }     
-  @font-face {
-    font-family: defaultFont;
-    /*src: url('{{ asset('fonts/Circular.ttf') }}');*/
-    src: url('../fonts/Circular.ttf');
-  }
   * {
     font-family: defaultFont !important;
   }
@@ -30,11 +25,6 @@ hr{
    margin-left: 105px;
    margin-right: 105px;
  }
- footer{
-  padding: 10px;
-  margin:10px;
-  margin: 0px;
-}
 .function {
   background-color: #f2f2f2;
 }

@@ -53,7 +53,7 @@
     overflow: hidden;
     display: flex;
 }
-img {
+#chat_wrapper img {
     display: block;
     width: 100%;
 }
