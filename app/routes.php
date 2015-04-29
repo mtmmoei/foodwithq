@@ -22,3 +22,7 @@ Route::get('/map',function(){
 	return View::make('map');
 });
 
+Route::get('Restaurant','RestaurantsController@getRestaurant');
+
+Route::get('Restaurant/{type}/{section}/{subtype}', array('as' => 'name', 'uses' => 'EachstatusController@showEachStatus'));
+

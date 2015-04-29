@@ -129,6 +129,7 @@ $(document).on('click', '#btn-chat', function (e) {
         },
         dataType : "json",
         success : function(data){
+          console.log(data);
          for (var i = 0; i < data.length; i++) {
           console.log(data[i].resturantName);
           var html = "<div class='panel panel-default'>"+
