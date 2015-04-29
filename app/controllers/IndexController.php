@@ -16,7 +16,7 @@ class IndexController extends Controller {
 			$subtype = Input::get('subtype');
 
 			$data = Resturant::getRestaurant($type,$section,$subtype);
-			Log::info("test q: " . Response::json($data) );
+			//Log::info("test q: " . Response::json($data) );
 
 			
 			// $data = Resturant::getRestaurantByType($type);

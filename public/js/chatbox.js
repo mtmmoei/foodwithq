@@ -18,12 +18,10 @@ function initQuestionData(){
   types[1] = "หวาน";
 
   var subtypes = [];
-  subtypes[0] = "ไทย";
+  subtypes[0] = "ญี่ปุ่น";
   subtypes[1] = "จีน";
-  subtypes[2] = "ฝรั่ง";
-  subtypes[3] = "ปิ้งย่าง";
-  subtypes[4] = "ชาบู";
-  subtypes[5] = "อื่นๆ";
+  subtypes[2] = "ชาบู";
+  subtypes[3] = "อื่นๆ";
 
   conditions[section] = {
     elems : sections,
@@ -122,6 +120,10 @@ $(document).on('click', '#btn-chat', function (e) {
   }
   else if(message>0&&message<=conditions[selectedMode].elems.length){
     selectedConditions[selectedMode] = conditions[selectedMode].elems[message-1];
+    console.log("0 "+selectedConditions[0]);
+    console.log("1 "+selectedConditions[1]);
+    console.log("2 "+selectedConditions[2]);
+    
     var base_url = 'http://localhost/foodwithq/public';
     $.ajax({
       type: "GET",
@@ -130,7 +132,7 @@ $(document).on('click', '#btn-chat', function (e) {
       data : {
         section : selectedConditions[0],
         type : selectedConditions[1],
-        subtypes : selectedConditions[2]
+        subtype : selectedConditions[2]
       },
       dataType : "json",
       success : function(data){
@@ -188,7 +190,7 @@ $(document).on('click', '#btn-chat', function (e) {
         selectedMode=condition;
         $("#chat_result").show();
       } 
-      
+
     },
     error: function (xhr, ajaxOptions, thrownError) {
       alert(xhr.status);
