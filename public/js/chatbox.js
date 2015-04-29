@@ -174,6 +174,10 @@ $(document).on('click', '#btn-chat', function (e) {
           $("#accordion").append(html);
         } 
         $("#chat_result").show();
+      },
+       error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
       }
     });
 
