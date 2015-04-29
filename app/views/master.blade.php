@@ -7,9 +7,8 @@
  {{HTML::script('http://maps.googleapis.com/maps/api/js')}}
  {{HTML::script('js/bootstrap.min.js')}}
  {{HTML::script('js/index.js')}}
+ {{HTML::script('js/map.js')}}
  {{HTML::script('js/chatbox.js')}}
-<!--  {{HTML::script('js/map.js')}} -->
- 
  {{HTML::style('css/bootstrap.min.css')}}
  {{HTML::style('css/index.css')}}
  {{HTML::style('css/chatbox.css')}}
