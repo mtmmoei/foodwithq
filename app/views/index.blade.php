@@ -78,22 +78,11 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
-            <div class="modal-header" id="reviewDataHeader">
-                
-            </div>
+            <div class="modal-header" id="reviewDataHeader"></div>
             <div class="modal-body row" id="reviewDataBody">
-                <div class="col-md-6" id="reviewDataBodyLeft">
-
-                </div>
                 <div class="col-md-6" id="reviewDataBodyRight">
-
                 </div>
             </div>
-
-            <div class="modal-footer">
-                <a href="#" class="btn btn-danger btn-modal btn-cancel"  data-dismiss="modal">OK</a>
-            </div>
-
         </div>
     </div>
 </div>
@@ -113,4 +102,5 @@
 </div>
 </div>
 <div id="map_canvas" style="margin-top:-1000px"></div>
+ <div class="col-md-6" id="reviewDataBodyLeft" style="margin-top:-1000px"></div>
 @stop

@@ -14,6 +14,7 @@ $(document).ready(function() {
 	    reviewModal.html("");
 	   
 	    reviewModalHead.html("");
+	    reviewModalHead.append("<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>");
 	    reviewModalHead.append("<h3>"+resName+"</h3>");
 	    reviewModal.append("<h4>รีวิว</h4> " +review+"</br>");
 	    reviewModal.append("<h4>ประเภทอาหาร</h4> " + foodtype +"</br>");
@@ -38,13 +39,9 @@ $(document).ready(function() {
 	  		reviewModalMap.hide();
 
 	  	}
+	  	console.log("test");
 	    $("#review").modal("show");
 
 	});
-
-
-
-
-
 });
 
