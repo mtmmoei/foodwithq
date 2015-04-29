@@ -49,3 +49,15 @@
 
 }
 
+#cover {
+/*    background-image: url("../img/cover1.jpg");*/
+  /*  background-position: center;*/
+/*    opacity: 0.9;*/
+  background: #6cab26;
+background-image: url("../img/cover1.jpg"); /* fallback */
+background-image: url("../img/cover1.jpg"), -webkit-gradient(linear, left top, left bottom, from(#6cab26), to(#6ceb86)); /* Saf4+, Chrome */
+background-image: url("../img/cover1.jpg"), -webkit-linear-gradient(top, #6cab26, #6ceb86); /* Chrome 10+, Saf5.1+ */
+background-image: url("../img/cover1.jpg"),    -moz-linear-gradient(top, #6cab26, #6ceb86); /* FF3.6+ */
+background-image: url("../img/cover1.jpg"),      -o-linear-gradient(top, #6cab26, #6ceb86); /* Opera 11.10+ */
+background-image: url("../img/cover1.jpg"),         linear-gradient(to bottom, #6cab26, #6ceb86); /* W3C */
+}

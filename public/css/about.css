@@ -43,9 +43,7 @@ hr{
   font-size: 3em;
 }
 
-.coverBackground{
-  
- /* background-image: url('{{ asset('img/cover2.jpg')}}');*/
+/*.coverBackground{
   background-image: url("../img/cover2.jpg");
   opacity: 0.9;
   position: absolute;
@@ -55,13 +53,19 @@ hr{
   background-position: center;
   z-index: -1;
   background-size: cover;
-}
+}*/
 
-.cover h1{
-  color: white;
-  font-size: 7em;
-  margin: 0px;
-}
-.cover {
-  height:100vh;
+
+
+#cover {
+    background-image: url("../img/cover2.jpg");
+  /*  background-position: center;*/
+ /*   opacity: 0.9;*/
+  background: #6cab26;
+background-image: url("../img/cover2.jpg"); /* fallback */
+background-image: url("../img/cover2.jpg"), -webkit-gradient(linear, left top, left bottom, from(#6cab26), to(#6ceb86)); /* Saf4+, Chrome */
+background-image: url("../img/cover2.jpg"), -webkit-linear-gradient(top, #6cab26, #6ceb86); /* Chrome 10+, Saf5.1+ */
+background-image: url("../img/cover2.jpg"),    -moz-linear-gradient(top, #6cab26, #6ceb86); /* FF3.6+ */
+background-image: url("../img/cover2.jpg"),      -o-linear-gradient(top, #6cab26, #6ceb86); /* Opera 11.10+ */
+background-image: url("../img/cover2.jpg"),         linear-gradient(to bottom, #6cab26, #6ceb86); /* W3C */
 }

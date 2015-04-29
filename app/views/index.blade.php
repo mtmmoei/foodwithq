@@ -43,12 +43,12 @@
     </div>
 </div>
 </div>
-
+<a href=".review" class="arrow inner-link"></a>
 <div class="container reviewArea">
     <div class="review">
         @foreach($data as $data1)
 
-        <div class="reviewImg" map="{{$data1->map}}" restaurantName="{{$data1->resturantName}}" reviewData="{{$data1->review}}" foodType="{{$data1->type}}" subType="{{$data1->subtype}}" section="{{$data1->section}}">
+        <div class="reviewImg col-md-4" map="{{$data1->map}}" restaurantName="{{$data1->resturantName}}" reviewData="{{$data1->review}}" foodType="{{$data1->type}}" subType="{{$data1->subtype}}" section="{{$data1->section}}">
             <img src="{{$data1->image}}" style="width:360px;height:360px" id="linkModal" data-toggle="modal" >
             {{$data1->resturantName}}
 

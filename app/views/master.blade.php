@@ -11,11 +11,12 @@
 	@yield('style')
 </head>
 <body>
-
-	<nav class="navbar navbar-default">
+<div id="cover">  
+	<nav class="navbar navbar-default transparent">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
+
 				<a class="navbar-brand" href="#">ของกินของขวัญ</a>
 			</div>
 
@@ -29,6 +30,12 @@
 
 		</div>
 	</nav>
+	<div class='logo'>
+    {{ HTML::image('img/logo4.png', 'ของกินของขวัญ') }}
+    <!-- <h1>ของกินของขวัญ</h1> -->
+    <h1>"คิดถึงของกิน คิดถึงของกินของขวัญ"</h1>
+  </div> 
+	</div>
 	@yield('content')
 </body>
 <footer>

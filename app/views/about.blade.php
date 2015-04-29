@@ -3,16 +3,7 @@
 {{HTML::style('css/about.css')}}
 @stop
 @section('content')
-<section id='cover'>
- <div class='cover'>
-  <div class='coverBackground'></div>
-
-  <div class='logo'>
-    {{ HTML::image('img/logo4.png', 'ของกินของขวัญ') }}
-    <!-- <h1>ของกินของขวัญ</h1> -->
-    <h1>"คิดถึงของกิน คิดถึงของกินของขวัญ"</h1>
-  </div> 
-</section>
+ 
 <section id='container'>
 
   <div class='historical'>
