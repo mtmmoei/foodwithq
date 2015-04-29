@@ -10,7 +10,9 @@ function initialize()
   };
 
   map=new google.maps.Map(document.getElementById("map_canvas"),mapProp);
-
+setTimeout(function(){
+            $('#map_modalLabel').append($("#map_canvas").css("margin-top","0px").get(0));
+        },500);
   marker=new google.maps.Marker({
     position:myCenter,
     draggable: false
