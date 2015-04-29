@@ -1,6 +1,7 @@
 .reviewImg {
 	display: inline-block;
 	padding:5px;
+	text-align: center;
 
 }
 .review{
@@ -12,7 +13,15 @@
     margin-right: auto;
     float: none;
 }
-#map_canvas {
+#map_canvas  {
 	width: 558px;
 	height: 400px;
 }
+#reviewDataBodyLeft{
+	width: 420px;
+	height: 400px;
+}
+.reviewImg:hover {
+    background-color: #DCDEE3;
+} 
+

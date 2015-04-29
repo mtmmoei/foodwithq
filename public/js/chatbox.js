@@ -117,7 +117,7 @@ $(document).on('click', '#btn-chat', function (e) {
 
     if(message>0&&message<=conditions[selectedMode].elems.length){
       selectedConditions[selectedMode] = conditions[selectedMode].elems[message-1];
-      var base_url = 'http://localhost/foodwithq/public';
+      var base_url = 'http://localhost/webprog/public';
       $.ajax({
         type: "GET",
         url : base_url+"/showRestaurant",
