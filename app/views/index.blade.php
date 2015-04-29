@@ -24,11 +24,11 @@
 <div class="container">
  
  <div class="row" id="chat_wrapper">
-    <div class="row col-md-8" id="chat_result">
+    <div class=" col-md-8" id="chat_result">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   </div> <!-- panel-group -->
 </div> <!-- row -->
-<div class="row chat-window col-md-4" id="chat_window">
+<div class="chat-window col-md-4" id="chat_window">
     <div class="col-xs-12 col-md-12">
        <div class="panel panel-default">
         <div class="panel-heading top-bar">
@@ -50,29 +50,31 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 </div>
 </div>
 
-<div class="container reviewArea">
-    <div class="review">
+
+<div class="reviewArea">
+    <div class="row">
         @foreach($data as $data1)
 
-        <div class="reviewImg" map="{{$data1->map}}" restaurantName="{{$data1->resturantName}}" reviewData="{{$data1->review}}" foodType="{{$data1->type}}" subType="{{$data1->subtype}}" section="{{$data1->section}}">
-            <img src="{{$data1->image}}" style="width:360px;height:360px" id="linkModal" data-toggle="modal" >
+        <div class="reviewImg col-md-4" map="{{$data1->map}}" restaurantName="{{$data1->resturantName}}" reviewData="{{$data1->review}}" foodType="{{$data1->type}}" subType="{{$data1->subtype}}" section="{{$data1->section}}">
+            <img src="{{$data1->image}}" style="height:360px;" id="linkModal" data-toggle="modal" >
             {{$data1->resturantName}}
 
         </div> 
         @endforeach  
-        
     </div>
+    
     
 </div>
 
+  
+</div>
 <div class="container footer">
 
-</div>    
-
+</div>  
 
 <div class="modal fade" id="review" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

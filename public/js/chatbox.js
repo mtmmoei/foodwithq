@@ -129,7 +129,7 @@ $(document).on('click', '#btn-chat', function (e) {
     var base_url = 'http://localhost/webprog/public';
     $.ajax({
       type: "GET",
-      url : base_url+"/showRestaurant",
+      url : "showRestaurant",
       contentType: "application/json; charset=utf-8",
       data : {
         section : selectedConditions[0],

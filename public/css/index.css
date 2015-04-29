@@ -1,6 +1,6 @@
 .reviewImg {
 	display: inline-block;
-	padding:5px;
+	
 	text-align: center;
 
 }
@@ -32,6 +32,9 @@
 }
 
 
+.col-md-4,.col-md-12{
+	padding-right: 0px !important;
+}
 .reviewImg  {
     -webkit-transition: all 1s ease; /* Safari and Chrome */
     -moz-transition: all 1s ease; /* Firefox */
