@@ -2,13 +2,6 @@
 @section('content')
 <div class="container">
     <div class='col-md-10'>
-        @if ($errors->has())
-        <div class="alert alert-danger">
-            @foreach ($errors->all() as $error)
-            {{ $error }}<br>        
-            @endforeach
-        </div>
-        @endif
 
 
         <!-- protected $fillable = array('resturantName','map','review', 'image',    'type', 'subtype',  'section'); -->
@@ -32,43 +25,43 @@
         <div class="form-group">
             <label for="map">map</label>
 
-            <input type="text" id="map" class="form-control" name="map" placeholder="map">
+            <input type="text" id="map" required="required" class="form-control" name="map" placeholder="map">
         </div>
 
         <div class="form-group">
             <label for="review">review</label>
             <p></p>
-            <input type="text" id="review" class="form-control" name="review" placeholder="review">
+            <input type="text" id="review" required="required" class="form-control" name="review" placeholder="review">
         </div>
 
         <div class="form-group">
             <label for="image">image</label>
 
-            <input type="text" id="image" class="form-control" name="image" >
+            <input type="text" id="image" required="required" class="form-control" name="image" >
         </div>
         <div class="form-group"  >
-         <label for="type">type</label>
-            {{ Form::select('type', array('' => 'กรุณาเลือก', 'maindish' => 'อาหารคาว', 'sweet' => 'อาหารหวาน'), null, ['class' => 'form-control', 'required' => 'required']) }}
-        </div>
+           <label for="type">type</label>
+           {{ Form::select('type', array('' => 'กรุณาเลือก', 'คาว' => 'อาหารคาว', 'หวาน' => 'อาหารหวาน'), null, ['class' => 'form-control', 'required' => 'required']) }}
+       </div>
 
-        <div class="form-group"  >
-         <label for="subtype">subtype</label>
-            {{ Form::select('subtype', array('' => 'กรุณาเลือก', 'jp' => 'ญี่ปุ่น', 'en' => 'ฝรั่ง', 'ch' => 'จีน', 'shabu' => 'ชาบู' ,'other'=>'อื่นๆ'), null, ['class' => 'form-control']) }}
+       <div class="form-group"  >
+           <label for="subtype">subtype</label>
+           {{ Form::select('subtype', array('' => 'กรุณาเลือก', 'ญี่ปุ่น' => 'ญี่ปุ่น', 'ฝรั่ง' => 'ฝรั่ง', 'จีน' => 'จีน', 'ชาบู' => 'ชาบู' ,'อื่นๆ'=>'อื่นๆ'), null, ['class' => 'form-control']) }}
 
-        </div>
-        <div class="form-group"  >
-         <label for="subtype">section</label>
-            {{ Form::select('section', array('' => 'กรุณาเลือก', 'siam' => 'สยาม', 'samyan' => 'สามย่าน', 'silom' => 'สีลม'), null, ['class' => 'form-control', 'required' => 'required']) }}
+       </div>
+       <div class="form-group"  >
+           <label for="subtype">section</label>
+           {{ Form::select('section', array('' => 'กรุณาเลือก', 'สยาม' => 'สยาม', 'สามย่าน' => 'สามย่าน', 'สีลม' => 'สีลม'), null, ['class' => 'form-control', 'required' => 'required']) }}
 
-        </div> 
+       </div> 
 
-        <p><button type="submit" class="btn btn-success">Go</button>
+       <p><button type="submit" class="btn btn-success">Go</button>
 
-        </form>
-        {{ Form::close() }}
+       </form>
+       {{ Form::close() }}
 
 
-    </div>
+   </div>
 
 </div>
 

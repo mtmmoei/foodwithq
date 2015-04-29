@@ -12,12 +12,18 @@ class FormController extends BaseController {
 		$resturant->review =Input::get('review');
 		$resturant->image = Input::get('image');
 		$resturant->type = Input::get('type');
-		$resturant->subtype = Input::get('subtype');
+		if(Input::get('type') == 'หวาน'){
+			$resturant->subtype = 'null';
+		}
+		else{
+			$resturant->subtype = Input::get('subtype');
+		}
 		$resturant->section = Input::get('section');
 		
 		$resturant->save();
+		var_dump(Input::get('subtype'));
 		var_dump($resturant);
-		
+		return View::make('home');
 	}
 		}
 

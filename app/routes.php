@@ -25,4 +25,10 @@ Route::get('/map',function(){
 Route::get('Restaurant','RestaurantsController@getRestaurant');
 
 Route::get('Restaurant/{type}/{section}/{subtype}', array('as' => 'name', 'uses' => 'EachstatusController@showEachStatus'));
+Route::get('addData', function() 
+{
+    return View::make('form');
+});
+
+Route::post('addData','FormController@saveForm');
 
