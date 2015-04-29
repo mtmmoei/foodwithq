@@ -21,6 +21,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li>{{ HTML::link('/about','About')}}</li>
+        <li>{{ HTML::link('/addData','Add restaurant')}}</li>
       </ul>
     </div>
 
@@ -29,6 +30,7 @@
 @yield('content')
 </body>
 <footer>
+<center>
   <div class='icon'>
    <a href="http://www.facebook.com/foodwithq" target ='_blank'>
 {{ HTML::image('img/facebook.png', 'facebook page') }}
@@ -40,5 +42,6 @@
 {{ HTML::image('img/email.png', 'email') }}
    </a>
  </div>
+ </center>
 </footer>
 </html>
