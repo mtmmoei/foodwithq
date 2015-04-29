@@ -26,7 +26,7 @@ function initQuestionData(){
 
   conditions[section] = {
     elems : sections,
-    msg : "เลือกตามย่าน",
+    msg : "เลือกร้านตามย่าน",
   };
   conditions[type] = {
     elems : types,
@@ -108,12 +108,13 @@ $(document).on('click', '#btn-chat', function (e) {
   var message = $(".chat_input").val().trim();
   ask(message);
    //console.log(selectedMode);
+  // if (message==1) {reply("อยากได้ร้านตรงไหนนนนนน");};
    if(selectedMode==condition){
     if(message>0&&message<=conditions.length){
       selectedMode = message-1;
       reply(generateQuestion(conditions[message-1].elems));
     } else {
-      reply("ใส่หมายเลขมาเลย");
+      reply("ใส่หมายเลขมาได้เลย");
     }
   } else {
 
@@ -206,7 +207,7 @@ $(document).on('click', '#btn-chat', function (e) {
   });
 
 } else {
-  reply("ใส่หมายเลขมาเลย");
+  reply("ใส่หมายเลขมาได้เลย");
 }
 }
 
@@ -219,6 +220,7 @@ $(document).on('click', '.icon_refresh', function (e) {
   $("#accordion").html("");
   selectedConditions = [null,null,null];
  // $("#chat_result").hide();
+ reply("เพิ่มเงื่อนไขที่อยากได้ต่อได้เลย");
  reply(generateQuestionForCondition(conditions));
 });
 
@@ -226,6 +228,7 @@ $(document).ready(function() {
    // $("#chat_result").hide();
    initQuestionData();
    selectedMode=condition;
+    reply("วันนี้อยากจะกินอะไรล่ะ");
    reply(generateQuestionForCondition(conditions));
    $('.chat_input').keypress(function (e) {
     var key = e.which;
