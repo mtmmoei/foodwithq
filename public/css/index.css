@@ -1,18 +1,50 @@
 .reviewImg {
 	display: inline-block;
 	padding:5px;
+	text-align: center;
 
 }
 .review{
 	display:inline;
 	
 }
+.reviewArea{
+	margin-top:50px;
+
+}
 .center{
     margin-left: auto;
     margin-right: auto;
     float: none;
 }
-#map_canvas {
+
+#map_canvas  {
 	width: 558px;
 	height: 400px;
+}
+#reviewDataBodyLeft{
+	width: 420px;
+	height: 400px;
+}
+.footer{
+	height:80px;
+
+}
+
+
+.reviewImg  {
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -ms-transition: all 1s ease; /* IE 9 */
+    -o-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
+}
+
+.reviewImg:hover  {
+    -webkit-transform:scale(1.25); /* Safari and Chrome */
+    -moz-transform:scale(1.25); /* Firefox */
+    -ms-transform:scale(1.25); /* IE 9 */
+    -o-transform:scale(1.25); /* Opera */
+     transform:scale(1.25);
+
 }

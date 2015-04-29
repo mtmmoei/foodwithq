@@ -1,7 +1,28 @@
 @extends("master",['title' => 'หน้าแรก'])
 @section('content')
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">ของกินของขวัญ</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="about.blade.html">About</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
 <div class="container">
- <h1>ของกินของขวัญ</h1>
+ 
  <div class="row" id="chat_wrapper">
     <div class="row col-md-8" id="chat_result">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -33,35 +54,35 @@
 </div>
 </div>
 
-<div class="container">
+<div class="container reviewArea">
     <div class="review">
         @foreach($data as $data1)
 
-        <div class="reviewImg">
-            <img src="{{$data1->image}}" style="width:360px;height:360px"  reviewId="{{$data1->review}}" id="linkModal" data-toggle="modal" href="#review">
+        <div class="reviewImg" map="{{$data1->map}}" restaurantName="{{$data1->resturantName}}" reviewData="{{$data1->review}}" foodType="{{$data1->type}}" subType="{{$data1->subtype}}" section="{{$data1->section}}">
+            <img src="{{$data1->image}}" style="width:360px;height:360px" id="linkModal" data-toggle="modal" >
             {{$data1->resturantName}}
+
         </div> 
         @endforeach  
         
     </div>
     
+</div>
+
+<div class="container footer">
+
 </div>    
 
 
 <div class="modal fade" id="review" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
-            <div class="modal-header">
-                <h3>Review</h3>
+            <div class="modal-header" id="reviewDataHeader"></div>
+            <div class="modal-body row" id="reviewDataBody">
+                <div class="col-md-6" id="reviewDataBodyRight">
+                </div>
             </div>
-            <div class="modal-body" id="reviewData">
-
-            </div>
-            <div class="modal-footer">
-                <a href="#" class="btn btn-danger btn-modal btn-cancel"  data-dismiss="modal">OK</a>
-            </div>
-
         </div>
     </div>
 </div>
@@ -75,9 +96,11 @@
         <h4 class="modal-title" id="map_modalLabel">แผนที่ร้าน</h4>
     </div>
     <div class="modal-body">
-        <div id="map_canvas"></div>
+        
     </div>
 </div>
 </div>
 </div>
+<div id="map_canvas" style="margin-top:-1000px"></div>
+ <div class="col-md-6" id="reviewDataBodyLeft" style="margin-top:-1000px"></div>
 @stop

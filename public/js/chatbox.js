@@ -19,9 +19,10 @@ function initQuestionData(){
 
   var subtypes = [];
   subtypes[0] = "ญี่ปุ่น";
-  subtypes[1] = "จีน";
-  subtypes[2] = "ชาบู";
-  subtypes[3] = "อื่นๆ";
+  subtypes[1] = "ฝรั่ง";
+  subtypes[2] = "จีน";
+  subtypes[3] = "ชาบู";
+  subtypes[4] = "อื่นๆ";
 
   conditions[section] = {
     elems : sections,
@@ -92,7 +93,7 @@ function ask(message){
 }
 
 $(document).on('click', '.btn_show_map', function (e) {
-  console.log($(this).attr("data-lat"));
+ // console.log($(this).attr("data-lat"));
   var myCenter=new google.maps.LatLng($(this).attr("data-lat"),$(this).attr("data-lng"));
   marker.setMap(null);
   marker=new google.maps.Marker({
@@ -115,6 +116,7 @@ $(document).on('click', '#btn-chat', function (e) {
       reply("ใส่หมายเลขมาเลย");
     }
   } else {
+
    if(selectedConditions[0]!=null&&selectedConditions[1]!=null&&selectedConditions[2]!=null){
     reply(generateQuestionForCondition(conditions));
   }
@@ -152,13 +154,13 @@ $(document).on('click', '#btn-chat', function (e) {
         "</a>"+
         "</h3>"+
         "</div> <!-- panel-heading -->";
-if(i==0){
-  html+="<div id='collapse"+i+"' class='panel-collapse collapse in' role='tabpanel' aria-labelledby='heading"+i+"'>";
-        
-}else {
-    html+="<div id='collapse"+i+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+i+"'>";
-}
-html+="<div class='panel-body'>"+
+        if(i==0){
+          html+="<div id='collapse"+i+"' class='panel-collapse collapse in' role='tabpanel' aria-labelledby='heading"+i+"'>";
+
+        }else {
+          html+="<div id='collapse"+i+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+i+"'>";
+        }
+        html+=  "<div class='panel-body'>"+
         "<div class='row'>"+
         "<div class='col-xs-6'>"+
         "<img class='info_image' src='"+data[i].image+"'>"+
@@ -175,6 +177,7 @@ html+="<div class='panel-body'>"+
         "<dd>"+data[i].section+"</dd>"+
         "</dl>";
         if(data[i].map!="null"){
+
             // console.log(data[i].map);
             var latlng = data[i].map.split(",");
             var lat = latlng[0];
