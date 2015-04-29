@@ -54,7 +54,7 @@
 </div>
 </div>
 
-<div class="container">
+<div class="container reviewArea">
     <div class="review">
         @foreach($data as $data1)
 
@@ -67,6 +67,10 @@
         
     </div>
     
+</div>
+
+<div class="container footer">
+
 </div>    
 
 
