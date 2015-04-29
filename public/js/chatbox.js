@@ -26,7 +26,7 @@ function initQuestionData(){
 
   conditions[section] = {
     elems : sections,
-    msg : "เลือกตามย่าน",
+    msg : "เลือกร้านตามย่าน",
   };
   conditions[type] = {
     elems : types,
@@ -108,12 +108,16 @@ $(document).on('click', '#btn-chat', function (e) {
   var message = $(".chat_input").val().trim();
   ask(message);
    //console.log(selectedMode);
+
    if(selectedMode==condition){
+      if (message==1) {reply("อยากได้ร้านตรงไหน");};
+      if (message==2) {reply("อยากกินของคาวหรือของหวาน");};
+      if (message==3) {reply("อยากกินอาหารประเภทอะไรล่ะ");};
     if(message>0&&message<=conditions.length){
       selectedMode = message-1;
       reply(generateQuestion(conditions[message-1].elems));
     } else {
-      reply("ใส่หมายเลขมาเลย");
+      reply("ใส่หมายเลขมาได้เลย");
     }
   } else {
 
@@ -122,11 +126,12 @@ $(document).on('click', '#btn-chat', function (e) {
   }
   else if(message>0&&message<=conditions[selectedMode].elems.length){
     selectedConditions[selectedMode] = conditions[selectedMode].elems[message-1];
-    console.log("0 "+selectedConditions[0]);
-    console.log("1 "+selectedConditions[1]);
-    console.log("2 "+selectedConditions[2]);
-    
-    var base_url = 'http://localhost/webprog/public';
+
+    // console.log("0 "+selectedConditions[0]);
+    // console.log("1 "+selectedConditions[1]);
+    // console.log("2 "+selectedConditions[2]);
+
+
     $.ajax({
       type: "GET",
       url : "showRestaurant",
@@ -140,7 +145,7 @@ $(document).on('click', '#btn-chat', function (e) {
       success : function(data){
         $("#accordion").html("");
         if(data.length<=0){
-          reply("ไม่มีร้านอาหารตามเงื่อนไข เลือกใหม่อีกทีนะ");
+          reply("นึกร้านอาหารตามที่ถามไม่ออก ลองถามใหม่ไหม");
         } 
         else {
           for (var i = 0; i < data.length; i++) {
@@ -160,7 +165,24 @@ $(document).on('click', '#btn-chat', function (e) {
         }else {
           html+="<div id='collapse"+i+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+i+"'>";
         }
-        html+=  "<div class='panel-body'>"+
+        if(data[i].subtype=="null"){
+          html+=  "<div class='panel-body'>"+
+        "<div class='row'>"+
+        "<div class='col-xs-6'>"+
+        "<img class='info_image' src='"+data[i].image+"'>"+
+        "</div>"+
+        "<div class='col-xs-6'>"+
+        "<dl>"+
+        "<dt>รีวิว</dt>"+
+        "<dd>"+data[i].review+"</dd>"+
+        "<dt>ประเภทอาหาร</dt>"+
+        "<dd>"+data[i].type+"</dd>"+
+
+        "<dt>ย่าน</dt>"+
+        "<dd>"+data[i].section+"</dd>"+
+        "</dl>";
+        }
+        else{html+=  "<div class='panel-body'>"+
         "<div class='row'>"+
         "<div class='col-xs-6'>"+
         "<img class='info_image' src='"+data[i].image+"'>"+
@@ -175,7 +197,8 @@ $(document).on('click', '#btn-chat', function (e) {
         "<dd>"+data[i].subtype+"</dd>"+
         "<dt>ย่าน</dt>"+
         "<dd>"+data[i].section+"</dd>"+
-        "</dl>";
+        "</dl>";}
+        
         if(data[i].map!="null"){
 
             // console.log(data[i].map);
@@ -193,7 +216,7 @@ $(document).on('click', '#btn-chat', function (e) {
           "</div> <!-- panel -->";
           $("#accordion").append(html);
         } 
-        reply("ร้านอาหารจะแสดงอยู่ด้านซ้ายนะ หรืออยากจะเลือกอย่างอื่นต่ออีกก็ได้");
+        reply("ร้านอาหารจะแสดงอยู่ด้านซ้ายมือนะ หรืออยากจะเลือกอย่างอื่นต่ออีกก็ได้");
         reply(generateQuestionForCondition(conditions));
         selectedMode=condition;
         $("#chat_result").show();
@@ -207,7 +230,7 @@ $(document).on('click', '#btn-chat', function (e) {
   });
 
 } else {
-  reply("ใส่หมายเลขมาเลย");
+  reply("ใส่หมายเลขมาได้เลย");
 }
 }
 
@@ -215,11 +238,13 @@ $(".chat_input").val('');
 });
 
 $(document).on('click', '.icon_refresh', function (e) {
+
   selectedMode=condition;
   $(".msg_container_base").html("");
   $("#accordion").html("");
   selectedConditions = [null,null,null];
  // $("#chat_result").hide();
+reply("วันนี้อยากจะกินอะไรล่ะ");
  reply(generateQuestionForCondition(conditions));
 });
 
@@ -227,6 +252,7 @@ $(document).ready(function() {
    // $("#chat_result").hide();
    initQuestionData();
    selectedMode=condition;
+    reply("วันนี้อยากจะกินอะไรล่ะ");
    reply(generateQuestionForCondition(conditions));
    $('.chat_input').keypress(function (e) {
     var key = e.which;

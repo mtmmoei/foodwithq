@@ -1,0 +1,14 @@
+ @font-face {
+    font-family: defaultFont;
+    /*src: url('{{ asset('fonts/Circular.ttf') }}');*/
+    src: url('../fonts/Circular.ttf');
+  }
+   footer *{
+    font-family: defaultFont !important;
+    text-align: center;
+  }
+footer{
+  padding: 10px;
+  margin:10px;
+  margin: 0px;
+}
