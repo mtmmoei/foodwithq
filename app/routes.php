@@ -14,8 +14,8 @@
 Route::get('/', 'IndexController@getReview');
 Route::get('/showRestaurant', 'IndexController@showRestaurantByCondition');
 
-Route::get('/home',function(){
-	return View::make('home');
+Route::get('/about',function(){
+	return View::make('about');
 });
 
 Route::get('/map',function(){
