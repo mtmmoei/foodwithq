@@ -151,9 +151,14 @@ $(document).on('click', '#btn-chat', function (e) {
         data[i].resturantName+
         "</a>"+
         "</h3>"+
-        "</div> <!-- panel-heading -->"+
-        "<div id='collapse"+i+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+i+"'>"+
-        "<div class='panel-body'>"+
+        "</div> <!-- panel-heading -->";
+if(i==0){
+  html+="<div id='collapse"+i+"' class='panel-collapse collapse in' role='tabpanel' aria-labelledby='heading"+i+"'>";
+        
+}else {
+    html+="<div id='collapse"+i+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+i+"'>";
+}
+html+="<div class='panel-body'>"+
         "<div class='row'>"+
         "<div class='col-xs-6'>"+
         "<img class='info_image' src='"+data[i].image+"'>"+
