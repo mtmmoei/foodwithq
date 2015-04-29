@@ -37,9 +37,10 @@
     <div class="review">
         @foreach($data as $data1)
 
-        <div class="reviewImg">
-            <img src="{{$data1->image}}" style="width:360px;height:360px"  reviewId="{{$data1->review}}" id="linkModal" data-toggle="modal" href="#review">
+        <div class="reviewImg" reviewData="{{$data1->review}}">
+            <img src="{{$data1->image}}" style="width:360px;height:360px" id="linkModal" data-toggle="modal" >
             {{$data1->resturantName}}
+
         </div> 
         @endforeach  
         
