@@ -41,19 +41,21 @@ function initQuestionData(){
   selectedMode = condition; 
 
 }
-
+function generateQuestionForCondition(choices){
+  var question="";
+    for (var i = 0; i < choices.length; i++) {
+      if(selectedConditions[i]==null){
+        question += (i+1)+". "+choices[i].msg +"\n";  
+      }
+    };     
+  return question;
+}
 function generateQuestion(choices){
   var question="";
-  if(selectedMode==condition){
-
-    for (var i = 0; i < choices.length; i++) {
-      question += (i+1)+". "+choices[i].msg +"\n";
-    };    
-  } else {
     for (var i = 0; i < choices.length; i++) {
       question += (i+1)+". "+choices[i] +"\n";
     };
-  }
+  
   return question;
 }
 function reply(message){
@@ -87,26 +89,7 @@ function ask(message){
  chat_container.append(html);
  chat_container.scrollTop(chat_container.prop("scrollHeight"));
 }
-var marker;
-var map;
-function initialize()
-{
-  var myCenter=new google.maps.LatLng(13.7455103,100.5332882);
-  var mapProp = {
-    center:myCenter,
-    zoom:20,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
 
-  map=new google.maps.Map(document.getElementById("map_canvas"),mapProp);
-
-  marker=new google.maps.Marker({
-    position:myCenter,
-    draggable: false
-  });
-
-  marker.setMap(map);
-}
 $(document).on('click', '.btn_show_map', function (e) {
   console.log($(this).attr("data-lat"));
   var myCenter=new google.maps.LatLng($(this).attr("data-lat"),$(this).attr("data-lng"));
@@ -161,20 +144,10 @@ $(document).on('click', '#btn-chat', function (e) {
           "<div id='collapse"+i+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+i+"'>"+
           "<div class='panel-body'>"+
           "<div class='row'>"+
-          "<div class='col-xs-4'>"+
-          "<img class='info_image' src='"+data[i].image+"'>";
-
-          if(data[i].map!="null"){
-            // console.log(data[i].map);
-            var latlng = data[i].map.split(",");
-            var lat = latlng[0];
-            var lng = latlng[1];
-          html+="<button type='button' class='btn btn-primary btn_show_map' data-lat='"+lat+"' data-lng='"+lng+"' data-toggle='modal' data-target='#map_modal'>"+
-          "แสดงแผนที่"+
-          "</button>";  
-          }
-          html +="</div>"+
-          "<div class='col-xs-8'>"+
+          "<div class='col-xs-6'>"+
+          "<img class='info_image' src='"+data[i].image+"'>"+
+          "</div>"+
+          "<div class='col-xs-6'>"+
           "<dl>"+
           "<dt>รีวิว</dt>"+
           "<dd>"+data[i].review+"</dd>"+
@@ -184,8 +157,17 @@ $(document).on('click', '#btn-chat', function (e) {
           "<dd>"+data[i].subtype+"</dd>"+
           "<dt>ย่าน</dt>"+
           "<dd>"+data[i].section+"</dd>"+
-          "</dl>"+
-          "</div>"+
+          "</dl>";
+ if(data[i].map!="null"){
+            // console.log(data[i].map);
+            var latlng = data[i].map.split(",");
+            var lat = latlng[0];
+            var lng = latlng[1];
+          html+="<button type='button' class='btn btn-primary btn_show_map' data-lat='"+lat+"' data-lng='"+lng+"' data-toggle='modal' data-target='#map_modal'>"+
+          "แสดงแผนที่"+
+          "</button>";  
+          }
+          html+="</div>"+
           "</div> <!-- row -->"+
           "</div> <!-- panel-body -->"+
           "</div> <!-- panel-collapse -->"+
@@ -195,7 +177,10 @@ $(document).on('click', '#btn-chat', function (e) {
         $("#chat_result").show();
       }
     });
-  reply("ร้านอาหารจะแสดงอยู่ด้านซ้ายนะ");
+
+  reply("ร้านอาหารจะแสดงอยู่ด้านซ้ายนะ หรืออยากจะเลือกอย่างอื่นต่ออีกก็ได้");
+  reply(generateQuestionForCondition(conditions));
+selectedMode=condition;
 } else {
   reply("ใส่หมายเลขมาเลย");
 }
@@ -207,14 +192,17 @@ $(".chat_input").val('');
 $(document).on('click', '.icon_refresh', function (e) {
   selectedMode=condition;
   $(".msg_container_base").html("");
-  reply(generateQuestion(conditions));
+  $("#accordion").html("");
+  selectedConditions = [null,null,null];
+ // $("#chat_result").hide();
+  reply(generateQuestionForCondition(conditions));
 });
 
 $(document).ready(function() {
-    //$("#chat_result").hide();
+   // $("#chat_result").hide();
     initQuestionData();
     selectedMode=condition;
-    reply(generateQuestion(conditions));
+    reply(generateQuestionForCondition(conditions));
     $('.chat_input').keypress(function (e) {
       var key = e.which;
     if(key == 13)  // the enter key code
@@ -226,5 +214,4 @@ $(document).ready(function() {
 });
 
 
-google.maps.event.addDomListener(window, 'load', initialize);
 
