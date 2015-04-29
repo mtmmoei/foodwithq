@@ -15,43 +15,41 @@ class Resturant extends Eloquent
 public static function getRestaurant($type,$section,$subtype){
 		if(!empty($type) && !empty($section) && !empty($subtype)){
 
-			$data = DB::table('resturant')->where('type', '=',$type)->where('section', '=',$section)->where('subtype', '=',$subtype)->get();
-			var_dump($data);
-			return $data;
+			return DB::table('resturant')->where('type', '=',$type)->where('section', '=',$section)->where('subtype', '=',$subtype)->get();
+
 
 		}
 		if(!empty($type) && !empty($section)){
 
-			$data = DB::table('resturant')->where('type', '=',$type)->where('section', '=',$section)->get();
-			var_dump($data);
-			return $data;
+			return  DB::table('resturant')->where('type', '=',$type)->where('section', '=',$section)->get();
+
 
 		}
 		if(!empty($type) && !empty($subtype)){
 
-			$data = DB::table('resturant')->where('type', '=',$type)->where('section', '=',$section)->get();
-			var_dump($data);
-			return $data;
+		return DB::table('resturant')->where('type', '=',$type)->where('section', '=',$section)->get();
 
 		}
 		if(!empty($section) && !empty($subtype)){
 
-			$data = DB::table('resturant')->where('section', '=',$section)->where('subtype', '=',$subtype)->get();
-			var_dump($data);
-			return $data;
+			return  DB::table('resturant')->where('section', '=',$section)->where('subtype', '=',$subtype)->get();
+
 
 		}
 		if (!empty($subtype)) {
-			$data = DB::table('resturant')->where('subtype', '=',$subtype)->get();
-			var_dump($data);
-			return $data;
+		return  DB::table('resturant')->where('subtype', '=',$subtype)->get();
+
 		}
 
 		if (!empty($section)) {
-			$data = DB::table('resturant')->where('section', '=',$section)->get();
-			var_dump($data);
-			return $data;
+			return  DB::table('resturant')->where('section', '=',$section)->get();
+
 		}
+		if (!empty($type)) {
+			return DB::table('resturant')->where('type', '=',$type)->get();
+
+		}
+
 
 		 // $data = DB::table('resturant')->where('type',$type)->get();
 		 // 	var_dump($data);
