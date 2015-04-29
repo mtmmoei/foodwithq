@@ -18,12 +18,11 @@ function initQuestionData(){
   types[1] = "หวาน";
 
   var subtypes = [];
-  subtypes[0] = "ไทย";
-  subtypes[1] = "จีน";
-  subtypes[2] = "ฝรั่ง";
-  subtypes[3] = "ปิ้งย่าง";
-  subtypes[4] = "ชาบู";
-  subtypes[5] = "อื่นๆ";
+  subtypes[0] = "ญี่ปุ่น";
+  subtypes[1] = "ฝรั่ง";
+  subtypes[2] = "จีน";
+  subtypes[3] = "ชาบู";
+  subtypes[4] = "อื่นๆ";
 
   conditions[section] = {
     elems : sections,
@@ -43,18 +42,21 @@ function initQuestionData(){
 }
 function generateQuestionForCondition(choices){
   var question="";
-    for (var i = 0; i < choices.length; i++) {
-      if(selectedConditions[i]==null){
-        question += (i+1)+". "+choices[i].msg +"\n";  
-      }
-    };     
+  for (var i = 0; i < choices.length; i++) {
+    if(selectedConditions[i]==null){
+      question += (i+1)+". "+choices[i].msg +"\n";  
+    }
+  };     
+  if(question==""){
+    return "เงื่อนไขที่เลือกครบแล้ว ถ้าอยากถามใหม่ก็กดปุ่มรีเฟรชด้านขวาบน"
+  }
   return question;
 }
 function generateQuestion(choices){
   var question="";
-    for (var i = 0; i < choices.length; i++) {
-      question += (i+1)+". "+choices[i] +"\n";
-    };
+  for (var i = 0; i < choices.length; i++) {
+    question += (i+1)+". "+choices[i] +"\n";
+  };
   
   return question;
 }
@@ -91,12 +93,12 @@ function ask(message){
 }
 
 $(document).on('click', '.btn_show_map', function (e) {
-  console.log($(this).attr("data-lat"));
+ // console.log($(this).attr("data-lat"));
   var myCenter=new google.maps.LatLng($(this).attr("data-lat"),$(this).attr("data-lng"));
   marker.setMap(null);
   marker=new google.maps.Marker({
     position:myCenter,
-     map: map,
+    map: map,
     draggable: false
   });  
   map.panTo(marker.getPosition());
@@ -115,57 +117,74 @@ $(document).on('click', '#btn-chat', function (e) {
     }
   } else {
 
-    if(message>0&&message<=conditions[selectedMode].elems.length){
-      selectedConditions[selectedMode] = conditions[selectedMode].elems[message-1];
-      var base_url = 'http://localhost/webprog/public';
-      $.ajax({
-        type: "GET",
-        url : base_url+"/showRestaurant",
-        contentType: "application/json; charset=utf-8",
-        data : {
-          section : selectedConditions[0],
-          type : selectedConditions[1],
-          subtypes : selectedConditions[2]
-        },
-        dataType : "json",
-        success : function(data){
-          console.log(data);
-         for (var i = 0; i < data.length; i++) {
-          console.log(data[i].resturantName);
-          var html = "<div class='panel panel-default'>"+
-          "<div class='panel-heading' role='tab' id='heading"+i+"'>"+
-          "<h3 class='panel-title'>"+
-          "<a data-toggle='collapse' data-parent='#accordion' href='#collapse"+i+"' aria-expanded='true' aria-controls='collapseOne'>"+
-          "<span class='glyphicon glyphicon-cutlery'></span> "+
-          data[i].resturantName+
-          "</a>"+
-          "</h3>"+
-          "</div> <!-- panel-heading -->"+
-          "<div id='collapse"+i+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+i+"'>"+
-          "<div class='panel-body'>"+
-          "<div class='row'>"+
-          "<div class='col-xs-6'>"+
-          "<img class='info_image' src='"+data[i].image+"'>"+
-          "</div>"+
-          "<div class='col-xs-6'>"+
-          "<dl>"+
-          "<dt>รีวิว</dt>"+
-          "<dd>"+data[i].review+"</dd>"+
-          "<dt>ประเภทอาหาร</dt>"+
-          "<dd>"+data[i].type+"</dd>"+
-          "<dt>ประเภทร้านอาหาร</dt>"+
-          "<dd>"+data[i].subtype+"</dd>"+
-          "<dt>ย่าน</dt>"+
-          "<dd>"+data[i].section+"</dd>"+
-          "</dl>";
- if(data[i].map!="null"){
+   if(selectedConditions[0]!=null&&selectedConditions[1]!=null&&selectedConditions[2]!=null){
+    reply(generateQuestionForCondition(conditions));
+  }
+  else if(message>0&&message<=conditions[selectedMode].elems.length){
+    selectedConditions[selectedMode] = conditions[selectedMode].elems[message-1];
+    console.log("0 "+selectedConditions[0]);
+    console.log("1 "+selectedConditions[1]);
+    console.log("2 "+selectedConditions[2]);
+    
+    var base_url = 'http://localhost/foodwithq/public';
+    $.ajax({
+      type: "GET",
+      url : base_url+"/showRestaurant",
+      contentType: "application/json; charset=utf-8",
+      data : {
+        section : selectedConditions[0],
+        type : selectedConditions[1],
+        subtype : selectedConditions[2]
+      },
+      dataType : "json",
+      success : function(data){
+        $("#accordion").html("");
+        if(data.length<=0){
+          reply("ไม่มีร้านอาหารตามเงื่อนไข เลือกใหม่อีกทีนะ");
+        } 
+        else {
+          for (var i = 0; i < data.length; i++) {
+        //  console.log(data[i].resturantName);
+        var html = "<div class='panel panel-default'>"+
+        "<div class='panel-heading' role='tab' id='heading"+i+"'>"+
+        "<h3 class='panel-title'>"+
+        "<a data-toggle='collapse' data-parent='#accordion' href='#collapse"+i+"' aria-expanded='true' aria-controls='collapseOne'>"+
+        "<span class='glyphicon glyphicon-cutlery'></span> "+
+        data[i].resturantName+
+        "</a>"+
+        "</h3>"+
+        "</div> <!-- panel-heading -->";
+        if(i==0){
+          html+="<div id='collapse"+i+"' class='panel-collapse collapse in' role='tabpanel' aria-labelledby='heading"+i+"'>";
+
+        }else {
+          html+="<div id='collapse"+i+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+i+"'>";
+        }
+        html+=  "<div class='panel-body'>"+
+        "<div class='row'>"+
+        "<div class='col-xs-6'>"+
+        "<img class='info_image' src='"+data[i].image+"'>"+
+        "</div>"+
+        "<div class='col-xs-6'>"+
+        "<dl>"+
+        "<dt>รีวิว</dt>"+
+        "<dd>"+data[i].review+"</dd>"+
+        "<dt>ประเภทอาหาร</dt>"+
+        "<dd>"+data[i].type+"</dd>"+
+        "<dt>ประเภทร้านอาหาร</dt>"+
+        "<dd>"+data[i].subtype+"</dd>"+
+        "<dt>ย่าน</dt>"+
+        "<dd>"+data[i].section+"</dd>"+
+        "</dl>";
+        if(data[i].map!="null"){
+
             // console.log(data[i].map);
             var latlng = data[i].map.split(",");
             var lat = latlng[0];
             var lng = latlng[1];
-          html+="<button type='button' class='btn btn-primary btn_show_map' data-lat='"+lat+"' data-lng='"+lng+"' data-toggle='modal' data-target='#map_modal'>"+
-          "แสดงแผนที่"+
-          "</button>";  
+            html+="<button type='button' class='btn btn-primary btn_show_map' data-lat='"+lat+"' data-lng='"+lng+"' data-toggle='modal' data-target='#map_modal'>"+
+            "แสดงแผนที่"+
+            "</button>";  
           }
           html+="</div>"+
           "</div> <!-- row -->"+
@@ -174,17 +193,19 @@ $(document).on('click', '#btn-chat', function (e) {
           "</div> <!-- panel -->";
           $("#accordion").append(html);
         } 
+        reply("ร้านอาหารจะแสดงอยู่ด้านซ้ายนะ หรืออยากจะเลือกอย่างอื่นต่ออีกก็ได้");
+        reply(generateQuestionForCondition(conditions));
+        selectedMode=condition;
         $("#chat_result").show();
-      },
-       error: function (xhr, ajaxOptions, thrownError) {
-        alert(xhr.status);
-        alert(thrownError);
-      }
-    });
+      } 
 
-  reply("ร้านอาหารจะแสดงอยู่ด้านซ้ายนะ หรืออยากจะเลือกอย่างอื่นต่ออีกก็ได้");
-  reply(generateQuestionForCondition(conditions));
-selectedMode=condition;
+    },
+    error: function (xhr, ajaxOptions, thrownError) {
+      alert(xhr.status);
+      alert(thrownError);
+    }
+  });
+
 } else {
   reply("ใส่หมายเลขมาเลย");
 }
@@ -199,23 +220,23 @@ $(document).on('click', '.icon_refresh', function (e) {
   $("#accordion").html("");
   selectedConditions = [null,null,null];
  // $("#chat_result").hide();
-  reply(generateQuestionForCondition(conditions));
+ reply(generateQuestionForCondition(conditions));
 });
 
 $(document).ready(function() {
    // $("#chat_result").hide();
-    initQuestionData();
-    selectedMode=condition;
-    reply(generateQuestionForCondition(conditions));
-    $('.chat_input').keypress(function (e) {
-      var key = e.which;
+   initQuestionData();
+   selectedMode=condition;
+   reply(generateQuestionForCondition(conditions));
+   $('.chat_input').keypress(function (e) {
+    var key = e.which;
     if(key == 13)  // the enter key code
     {
       $('#btn-chat').click();
       return false;  
     }
   });
-});
+ });
 
 
 

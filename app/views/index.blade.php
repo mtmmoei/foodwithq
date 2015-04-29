@@ -107,9 +107,10 @@
         <h4 class="modal-title" id="map_modalLabel">แผนที่ร้าน</h4>
     </div>
     <div class="modal-body">
-        <div id="map_canvas"></div>
+        
     </div>
 </div>
 </div>
 </div>
+<div id="map_canvas" style="margin-top:-1000px"></div>
 @stop
