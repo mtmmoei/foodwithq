@@ -17,9 +17,8 @@ class IndexController extends Controller {
 
 			$data = Resturant::getRestaurant($type,$section,$subtype);
 			Log::info("test q: " . Response::json($data) );
-			$data = Resturant::getRestaurantByType($type);
-			 
-			 Log::info("test : " . Response::json($data) );
+			// $data = Resturant::getRestaurantByType($type);
+			//  Log::info("test : " . Response::json($data) );
 
 			return Response::json($data);
 			// return View ::make('home',['data'=>$data]);
