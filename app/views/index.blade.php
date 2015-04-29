@@ -1,4 +1,14 @@
 @extends("master",['title' => 'หน้าแรก'])
+@section('script')
+  {{HTML::script('http://maps.googleapis.com/maps/api/js')}}
+ {{HTML::script('js/map.js')}}
+ {{HTML::script('js/index.js')}}
+ {{HTML::script('js/chatbox.js')}}
+@stop
+@section('style')
+{{HTML::style('css/index.css')}}
+ {{HTML::style('css/chatbox.css')}}
+ @stop
 @section('content')
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -10,7 +20,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="about.blade.html">About</a></li>
+        <li>{{ HTML::link('/about','About')}}</li>
       </ul>
     </div>
 

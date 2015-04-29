@@ -126,14 +126,13 @@ $(document).on('click', '#btn-chat', function (e) {
   }
   else if(message>0&&message<=conditions[selectedMode].elems.length){
     selectedConditions[selectedMode] = conditions[selectedMode].elems[message-1];
-    console.log("0 "+selectedConditions[0]);
-    console.log("1 "+selectedConditions[1]);
-    console.log("2 "+selectedConditions[2]);
-    
-    var base_url = 'http://localhost/foodwithq/public';
+    // console.log("0 "+selectedConditions[0]);
+    // console.log("1 "+selectedConditions[1]);
+    // console.log("2 "+selectedConditions[2]);
+
     $.ajax({
       type: "GET",
-      url : base_url+"/showRestaurant",
+      url : "showRestaurant",
       contentType: "application/json; charset=utf-8",
       data : {
         section : selectedConditions[0],
