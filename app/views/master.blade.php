@@ -9,6 +9,8 @@
 	{{HTML::style('css/bootstrap.min.css')}}
 	{{HTML::style('css/master.css')}}
 	@yield('style')
+
+  <link rel="shortcut icon" type="image/png" href="../public/img/icon.png"/>
 </head>
 <body>
 <div id="cover"> 
