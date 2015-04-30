@@ -63,3 +63,7 @@ hr{
     background-position: center;
  /*   opacity: 0.9;*/
 }
+
+.logo button {
+  display: none;
+}

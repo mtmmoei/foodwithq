@@ -153,7 +153,7 @@ $(document).on('click', '#btn-chat', function (e) {
         "<div class='panel-heading' role='tab' id='heading"+i+"'>"+
         "<h3 class='panel-title'>"+
         "<a data-toggle='collapse' data-parent='#accordion' href='#collapse"+i+"' aria-expanded='true' aria-controls='collapseOne'>"+
-        "<span class='glyphicon glyphicon-cutlery'></span> "+
+        // "<span class='glyphicon glyphicon-cutlery'></span> "+
         data[i].resturantName+
         "</a>"+
         "</h3>"+
@@ -287,8 +287,9 @@ $(window).scroll(function(){
       }
   });
 $(document).on('click', '.logo button', function (e){
+ // console.log("test "+$("#chat_wrapper").offset().top);
    $('html, body').animate({
-        scrollTop: $("#chat_wrapper").offset().top-50
+        scrollTop: $("#chat_wrapper").offset().top
     }, 800);
 });
 

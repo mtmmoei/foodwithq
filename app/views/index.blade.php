@@ -45,17 +45,16 @@
     </div>
     </div>
 </div>
-
-<a href=".review" class="arrow inner-link"></a>
+</div>
 <div class="container reviewArea">
     <div class="review">
         @foreach($data as $data1)
 
-        <div class="reviewImg col-md-4" map="{{$data1->map}}" restaurantName="{{$data1->resturantName}}" reviewData="{{$data1->review}}" foodType="{{$data1->type}}" subType="{{$data1->subtype}}" section="{{$data1->section}}">
-            <img src="{{$data1->image}}" style="width:360px;height:360px" id="linkModal" data-toggle="modal" >
-
-            {{$data1->resturantName}}
-
+        <div class="reviewImg col-md-4 effect" map="{{$data1->map}}" restaurantName="{{$data1->resturantName}}" reviewData="{{$data1->review}}" foodType="{{$data1->type}}" subType="{{$data1->subtype}}" section="{{$data1->section}}">
+           <img src="{{$data1->image}}" style="width:360px;height:360px" id="linkModal" data-toggle="modal" >
+           <div id="restaurantName">
+           <a href="#!"><h4> {{$data1->resturantName}} </h4></a>
+</div>
         </div> 
         @endforeach  
     </div>
@@ -94,6 +93,6 @@
 </div><!-- modal-content -->
 </div><!-- modal-dialog -->
 </div><!-- modal -->
-<div id="map_canvas" style="margin-top:-1000px"></div>
-<div class="col-md-6" id="reviewDataBodyLeft" style="margin-top:-1000px"></div>
+<div id="map_canvas" style="margin-top:-5000px"></div>
+<div class="col-md-6" id="reviewDataBodyLeft" style="margin-top:-5000px"></div>
 @stop
