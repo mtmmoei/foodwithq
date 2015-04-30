@@ -105,18 +105,20 @@ $(document).on('click', '.btn_show_map', function (e) {
 })
 
 $(document).on('click', '#btn-chat', function (e) {
-  console.log($("#chat_result"));
   var message = $(".chat_input").val().trim();
   ask(message);
-   //console.log(selectedMode);
-
-   if(selectedMode==condition){
-      if (message==1) {reply("อยากได้ร้านตรงไหน");};
+  if(selectedMode==condition){
+    if(message>0&&message<=conditions.length){
+      console.log(message);
+      if(selectedConditions[message-1]!=null){
+      reply("ไม่มีหมายเลขที่เลือก ลองใส่ใหม่นะ");
+    }else {
+       if (message==1) {reply("อยากได้ร้านตรงไหน");};
       if (message==2) {reply("อยากกินของคาวหรือของหวาน");};
       if (message==3) {reply("อยากกินอาหารประเภทอะไรล่ะ");};
-    if(message>0&&message<=conditions.length){
       selectedMode = message-1;
       reply(generateQuestion(conditions[message-1].elems));
+    }
     } else {
       reply("ใส่หมายเลขมาได้เลย");
     }
@@ -126,6 +128,7 @@ $(document).on('click', '#btn-chat', function (e) {
     reply(generateQuestionForCondition(conditions));
   }
   else if(message>0&&message<=conditions[selectedMode].elems.length){
+ 
     selectedConditions[selectedMode] = conditions[selectedMode].elems[message-1];
 
     $.ajax({
