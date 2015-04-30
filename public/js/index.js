@@ -43,5 +43,22 @@ $(document).ready(function() {
 	    $("#review").modal("show");
 
 	});
-});
 
+	window.onload = (function(){
+		var h=0;
+		var h_init = $("#chat_result").height()+667;
+		$(window).scroll(function () {
+		h = $("#chat_result").height()+667;
+
+		console.log(h); 
+
+	  	var fromTop = $(window).scrollTop();
+	    if( $(window).scrollTop() < h-509 ||$(window).scrollTop() < h_init) {
+	    	//$(".chat-window").css('margin-top', fromTop+"px");
+	    	$(".chat-window").animate({'margin-top':fromTop+"px"},400);
+	    	//alert("22");
+	    }
+	  })
+	})
+
+});

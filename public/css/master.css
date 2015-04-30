@@ -28,3 +28,11 @@ footer{
 .transparent {
   background-color: transparent !important;
 }
+
+.logo img {
+  height:200px;
+}
+
+.logo button {
+  margin-top:80px;
+}

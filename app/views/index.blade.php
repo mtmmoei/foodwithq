@@ -13,6 +13,7 @@
 
 <div class="container">
 
+
    <div class="row" id="chat_wrapper">
     <div class="row col-md-8" id="chat_result">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -28,6 +29,7 @@
                 <div class="col-md-4 col-xs-4" style="text-align: right;">
                     <a href="#"><span class="glyphicon glyphicon-refresh icon_refresh"></span></a>
                 </div>
+
             </div>
             <div class="panel-body msg_container_base">
             </div>
@@ -41,8 +43,9 @@
             </div>
         </div>
     </div>
+    </div>
 </div>
-</div>
+
 <a href=".review" class="arrow inner-link"></a>
 <div class="container reviewArea">
     <div class="review">
@@ -50,19 +53,21 @@
 
         <div class="reviewImg col-md-4" map="{{$data1->map}}" restaurantName="{{$data1->resturantName}}" reviewData="{{$data1->review}}" foodType="{{$data1->type}}" subType="{{$data1->subtype}}" section="{{$data1->section}}">
             <img src="{{$data1->image}}" style="width:360px;height:360px" id="linkModal" data-toggle="modal" >
+
             {{$data1->resturantName}}
 
         </div> 
         @endforeach  
-        
     </div>
+    
     
 </div>
 
+  
+</div>
 <div class="container footer">
 
-</div>    
-
+</div>  
 
 <div class="modal fade" id="review" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

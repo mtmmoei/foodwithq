@@ -11,20 +11,21 @@
 	@yield('style')
 </head>
 <body>
-<div id="cover">  
+<div id="cover"> 
+
 	<nav class="navbar navbar-default transparent">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 
-				<a class="navbar-brand" href="#">ของกินของขวัญ</a>
+{{ HTML::link('/','ของกินของขวัญ', array('class' => 'navbar-brand'))}}
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li>{{ HTML::link('/about','About')}}</li>
-					<li>{{ HTML::link('/addData','Add restaurant')}}</li>
+					<li>{{ HTML::link('/about','เกี่ยวกับเรา')}}</li>
+					<li>{{ HTML::link('/addData','เพิ่มร้านอาหาร')}}</li>
 				</ul>
 			</div>
 
@@ -32,8 +33,10 @@
 	</nav>
 	<div class='logo'>
     {{ HTML::image('img/logo4.png', 'ของกินของขวัญ') }}
+
     <!-- <h1>ของกินของขวัญ</h1> -->
     <h1>"คิดถึงของกิน คิดถึงของกินของขวัญ"</h1>
+    <button type="button" class="btn btn-default btn-lg transparent">คุยกับขวัญ</button>
   </div> 
 	</div>
 	@yield('content')
