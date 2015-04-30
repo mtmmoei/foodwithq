@@ -35,4 +35,6 @@ footer{
 
 .logo button {
   margin-top:80px;
+  border-color: white;
+  border: 2px solid;
 }

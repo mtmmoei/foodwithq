@@ -11,7 +11,7 @@
 @stop
 @section('content')
 
-<div class="container">
+<div class="container" id="chat_container">
 
 
    <div class="row" id="chat_wrapper">

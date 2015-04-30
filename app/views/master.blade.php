@@ -33,8 +33,6 @@
 	</nav>
 	<div class='logo'>
     {{ HTML::image('img/logo4.png', 'ของกินของขวัญ') }}
-
-    <!-- <h1>ของกินของขวัญ</h1> -->
     <h1>"คิดถึงของกิน คิดถึงของกินของขวัญ"</h1>
     <button type="button" class="btn btn-default btn-lg transparent">คุยกับขวัญ</button>
   </div> 
