@@ -3,6 +3,12 @@
     /*src: url('{{ asset('fonts/Circular.ttf') }}');*/
     src: url('../fonts/Circular.ttf');
   }
+
+@font-face {
+    font-family: LayijiMahaniyom-Bao;
+    src:url('../fonts/LayijiMahaniyom-Bao.ttf');
+
+}
    footer *{
     font-family: defaultFont !important;
     text-align: center;
@@ -13,8 +19,17 @@ footer{
   margin: 0px;
 }
 
+
+
 #cover {
+  font-family: defaultFont;
   height:100vh;
+}
+#cover .container-fluid {
+  font-size: 20px;
+}
+#cover .navbar-brand {
+  font-size: 24px;
 }
 #cover h1{
   color: white;

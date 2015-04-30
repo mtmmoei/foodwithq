@@ -41,7 +41,7 @@
   max-width:100%;
 }
 .messages > p {
-    font-size: 13px;
+    font-size: 18px;
     margin: 0 0 0.2rem 0;
   }
 .messages > time {
@@ -120,4 +120,8 @@
 #chat_result{
   /*height:400px;*/
   /*overflow-x:hidden;*/
+}
+* {
+  font-family: LayijiMahaniyom-Bao;
+
 }

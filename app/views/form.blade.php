@@ -1,4 +1,7 @@
 @extends('master', ['title' => 'Add job'])
+@section('style')
+{{HTML::style('css/index.css')}}
+@stop
 @section('content')
 <div class="container">
 <div class="row wrapper">
@@ -23,24 +26,24 @@
                     @if ($errors->has('resturantName')) <p class="help-block">{{ $errors->first('resturantName') }}</p> @endif
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group required">
                 <label for="map">map</label>
 
                 <input type="text" id="map" required="required" class="form-control" name="map" placeholder="map">
             </div>
 
-            <div class="form-group">
+            <div class="form-group required">
                 <label for="review">review</label>
                 <p></p>
                 <input type="text" id="review" required="required" class="form-control" name="review" placeholder="review">
             </div>
 
-            <div class="form-group">
+            <div class="form-group required">
                 <label for="image">image</label>
 
                 <input type="text" id="image" required="required" class="form-control" name="image" >
             </div>
-            <div class="form-group col-xs-4"  >
+            <div class="form-group col-xs-4 "  >
              <label for="type">type</label>
              {{ Form::select('type', array('' => 'กรุณาเลือก', 'คาว' => 'อาหารคาว', 'หวาน' => 'อาหารหวาน'), null, ['class' => 'form-control', 'required' => 'required']) }}
          </div>
