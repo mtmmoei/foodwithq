@@ -45,7 +45,7 @@
     </div>
     </div>
 </div>
-
+</div>
 <a href=".review" class="arrow inner-link"></a>
 <div class="container reviewArea">
     <div class="review">
