@@ -39,7 +39,6 @@ $(document).ready(function() {
 	  		reviewModalMap.hide();
 
 	  	}
-	  	console.log("test");
 	    $("#review").modal("show");
 
 	});
