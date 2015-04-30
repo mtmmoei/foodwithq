@@ -1,6 +1,7 @@
 @extends('master', ['title' => 'Add job'])
 @section('style')
 {{HTML::style('css/index.css')}}
+{{HTML::style('css/form.css')}}
 @stop
 @section('content')
 <div class="container">

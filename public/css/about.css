@@ -43,27 +43,13 @@ hr{
   font-size: 3em;
 }
 
-/*.coverBackground{
-  background-image: url("../img/cover2.jpg");
-  opacity: 0.9;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: -1;
-  background-size: cover;
-}*/
-
 
 
 #cover {
-    background-image: url("../img/cover2.jpg");
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
-    background-position: center;
+    height:60px;
  /*   opacity: 0.9;*/
 }
 
-.logo button {
+.logo {
   display: none;
 }
