@@ -62,3 +62,7 @@
 #chat_container {
     margin-top:50px;
 }
+
+#chat_result {
+    display: none;
+}

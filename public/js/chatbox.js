@@ -105,6 +105,7 @@ $(document).on('click', '.btn_show_map', function (e) {
 })
 
 $(document).on('click', '#btn-chat', function (e) {
+  console.log($("#chat_result"));
   var message = $(".chat_input").val().trim();
   ask(message);
    //console.log(selectedMode);
@@ -127,11 +128,6 @@ $(document).on('click', '#btn-chat', function (e) {
   else if(message>0&&message<=conditions[selectedMode].elems.length){
     selectedConditions[selectedMode] = conditions[selectedMode].elems[message-1];
 
-    // console.log("0 "+selectedConditions[0]);
-    // console.log("1 "+selectedConditions[1]);
-    // console.log("2 "+selectedConditions[2]);
-
-
     $.ajax({
       type: "GET",
       url : "showRestaurant",
@@ -148,6 +144,9 @@ $(document).on('click', '#btn-chat', function (e) {
           reply("นึกร้านอาหารตามที่ถามไม่ออก ลองถามใหม่ไหม");
         } 
         else {
+          $("#chat_result").css("display", "block");
+          $("#chat_window").removeClass("center");
+
           for (var i = 0; i < data.length; i++) {
         //  console.log(data[i].resturantName);
         var html = "<div class='panel panel-default'>"+
@@ -242,6 +241,9 @@ $(document).on('click', '.icon_refresh', function (e) {
   selectedMode=condition;
   $(".msg_container_base").html("");
   $("#accordion").html("");
+  $("#chat_result").css("display", "none");
+  $("#chat_window").addClass("center");
+
   selectedConditions = [null,null,null];
  // $("#chat_result").hide();
 reply("วันนี้อยากจะกินอะไรล่ะ");
@@ -262,7 +264,33 @@ $(document).ready(function() {
       return false;  
     }
   });
+
  });
+
+$(window).scroll(function(){
+    //console.log($("#chat_result").height());
+      var fromTop = $(window).scrollTop()-600;
+      var pos = $(this).scrollTop();
+      var bottom = 600+$("#chat_result").height()-$(".chat-window").height();
+      if (pos > 600 && pos < bottom) {
+          $(".chat-window").css('margin-top', fromTop+"px");
+      } else if(pos>=bottom && $("#chat_result").height() >21){
+        fromTop = bottom - $(".chat-window").height() - 80;
+        if(fromTop>=0){
+          $(".chat-window").css('margin-top', fromTop+"px");
+        } else {
+          console.log("set margin 0");
+          $(".chat-window").css('margin-top', "0");
+        }
+      }else {
+          $(".chat-window").css('margin-top', "0");
+      }
+  });
+$(document).on('click', '.logo button', function (e){
+   $('html, body').animate({
+        scrollTop: $("#chat_wrapper").offset().top-50
+    }, 800);
+});
 
 
 

@@ -19,7 +19,7 @@
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         </div> <!-- panel-group -->
     </div> <!-- row -->
-    <div class="row chat-window col-md-4" id="chat_window">
+    <div class="row chat-window col-md-4 center" id="chat_window">
         <div class="col-xs-12 col-md-12">
          <div class="panel panel-default">
             <div class="panel-heading top-bar">
@@ -27,7 +27,7 @@
                     <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chat - Quan (bot)</h3>
                 </div>
                 <div class="col-md-4 col-xs-4" style="text-align: right;">
-                    <a href="#"><span class="glyphicon glyphicon-refresh icon_refresh"></span></a>
+                    <a href="#!"><span class="glyphicon glyphicon-refresh icon_refresh"></span></a>
                 </div>
 
             </div>
@@ -72,7 +72,6 @@
 <div class="modal fade" id="review" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-
             <div class="modal-header" id="reviewDataHeader"></div>
             <div class="modal-body row" id="reviewDataBody">
                 <div class="col-md-6" id="reviewDataBodyRight">
