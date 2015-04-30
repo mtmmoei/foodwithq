@@ -36,7 +36,8 @@
 	<div class='logo'>
     {{ HTML::image('img/logo4.png', 'ของกินของขวัญ') }}
     <h1>"คิดถึงของกิน คิดถึงของกินของขวัญ"</h1>
-    <button type="button" class="btn btn-default btn-lg transparent">คุยกับขวัญ</button>
+    <button type="button" id="btn_goToChat" class="btn btn-default btn-lg transparent">คุยกับขวัญ</button>
+    <button type="button" id="btn_goToReview" class="btn btn-default btn-lg transparent">ดูรีวิวร้านอาหาร</button>
   </div> 
 	</div>
 	@yield('content')

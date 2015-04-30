@@ -53,3 +53,12 @@ footer{
   border-color: white;
   border: 2px solid;
 }
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  text-decoration: underline;
+  color: white;
+}
+.navbar-default .navbar-nav>li>a:hover {
+  text-decoration: underline;
+  color: white;
+}

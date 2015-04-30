@@ -63,3 +63,16 @@ $(document).ready(function() {
 
 });
 
+$(document).on('click', '#btn_goToChat', function (e){
+ // console.log("test "+$("#chat_wrapper").offset().top);
+   $('html, body').animate({
+        scrollTop: $("#chat_wrapper").offset().top
+    }, 800);
+});
+
+$(document).on('click', '#btn_goToReview', function (e){
+ // console.log("test "+$("#chat_wrapper").offset().top);
+   $('html, body').animate({
+        scrollTop: $(".review").offset().top
+    }, 800);
+});

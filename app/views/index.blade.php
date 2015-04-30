@@ -46,6 +46,7 @@
     </div>
 </div>
 </div>
+
 <div class="container reviewArea">
     <div class="review">
         @foreach($data as $data1)
@@ -64,10 +65,6 @@
 
   
 </div>
-<div class="container footer">
-
-</div>  
-
 <div class="modal fade" id="review" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -95,4 +92,5 @@
 </div><!-- modal -->
 <div id="map_canvas" style="margin-top:-5000px"></div>
 <div class="col-md-6" id="reviewDataBodyLeft" style="margin-top:-5000px"></div>
+
 @stop

@@ -286,12 +286,7 @@ $(window).scroll(function(){
           $(".chat-window").css('margin-top', "0");
       }
   });
-$(document).on('click', '.logo button', function (e){
- // console.log("test "+$("#chat_wrapper").offset().top);
-   $('html, body').animate({
-        scrollTop: $("#chat_wrapper").offset().top
-    }, 800);
-});
+
 
 
 
