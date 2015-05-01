@@ -71,5 +71,9 @@ footer{
 }
 
 nav * {
-  font-family: defaultFont !important;
+  font-family: LayijiMahaniyom-Bao !important;
+}
+
+.btn-lg {
+  font-size: 2em;
 }

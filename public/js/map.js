@@ -18,10 +18,10 @@ function initialize()
 
 setTimeout(function(){
             $('#map_modal .modal-body').append($("#map_canvas").css("margin-top","0px").get(0));
-        },500);
+        },1000);
 setTimeout(function(){
             $('#reviewDataBody').prepend($("#reviewDataBodyLeft").css("margin-top","0px").get(0));
-        },500);
+        },1000);
   marker=new google.maps.Marker({
     position:myCenter,
     draggable: false

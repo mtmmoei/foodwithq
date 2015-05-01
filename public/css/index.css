@@ -81,8 +81,8 @@ a, a:hover {
 #restaurantName:hover{
  opacity: 1;   
 }
-* {
+/** {
   font-family: LayijiMahaniyom-Bao;
 
-}
+}*/
 
